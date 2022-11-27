@@ -2,14 +2,15 @@
 
 const Todo = require("../models/Todo");
 
+// in the request we are getting an object {title, tasks}
 async function createTodoController(req, res) {
-  // console.log(req.body);
+  // console.log("req body---->", req.body);
   try {
     const { title } = req.body;
     if (!title) {
       res.status(401).json({
         success: false,
-        message: "Please enter title of Todo",
+        message: "Please enter Todo",
       });
     }
 
@@ -21,7 +22,8 @@ async function createTodoController(req, res) {
       });
     } else {
       const newTodo = new Todo({
-        title: req.body.title, // title is compulsory, and tasks can be added later
+        title: req.body.title,
+        tasks: req.body.tasks, // title is compulsory, and tasks can be added later
       });
       const createdNewTodo = await newTodo.save();
       res.status(201).json(createdNewTodo);
