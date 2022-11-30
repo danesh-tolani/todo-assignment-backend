@@ -11,10 +11,10 @@ async function editTaskController(req, res) {
         res.status(201).send("Updated Successfully");
       });
     } else {
-      res.send({ message: "todo not exists" });
+      res.send({ message: "todo does not not exists" });
     }
   } catch (error) {
-    res.status("Something went wrong");
+    console.log(error);
   }
 }
 

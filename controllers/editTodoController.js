@@ -7,14 +7,13 @@ async function editTodoController(req, res) {
     const todoExists = await Todo.findById(todoId);
 
     if (todoExists) {
-      Todo.findByIdAndUpdate(todoId, { title: title }).then(() => {
-        res.status(201).send("Updated Successfully");
-      });
+      const updTodo = await Todo.findByIdAndUpdate(todoId, { title: title });
+      res.status(201).json({ success: true, message: "title updated", updTodo });
     } else {
       res.send({ message: "todo not exists" });
     }
   } catch (error) {
-    res.status("Something went wrong");
+    console.log(error);
   }
 }
 

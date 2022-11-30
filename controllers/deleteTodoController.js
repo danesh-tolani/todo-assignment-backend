@@ -12,13 +12,14 @@ async function deleteTodoController(req, res) {
       });
     } else {
     }
-    // assignment: what we get in return from above value
     res.status(201).json({
       success: true,
       message: "Todo deleted",
       deletedTodo,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 module.exports = deleteTodoController;

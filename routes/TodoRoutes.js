@@ -16,6 +16,6 @@ router.delete("/deleteTodo/:id", deleteTodoController);
 router.post("/addTask/:id", createTaskController);
 router.put("/updateTask/:id", editTaskController);
 router.put("/updateTodo/:id", editTodoController);
-router.get("/searchTodos", searchTodosController);
+router.post("/searchTodos", searchTodosController);
 
 module.exports = router;

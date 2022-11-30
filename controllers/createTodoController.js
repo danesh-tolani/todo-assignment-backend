@@ -4,7 +4,6 @@ const Todo = require("../models/Todo");
 
 // in the request we are getting an object {title, tasks}
 async function createTodoController(req, res) {
-  // console.log("req body---->", req.body);
   try {
     const { title } = req.body;
     if (!title) {
@@ -29,13 +28,8 @@ async function createTodoController(req, res) {
       res.status(201).json(createdNewTodo);
     }
   } catch (error) {
-    // console.log(error);
-    res.status("Something went wrong");
+    console.log(error);
   }
-
-  // try catch
-  // check if title is empty
-  // there should be status code
 }
 
 module.exports = createTodoController;
