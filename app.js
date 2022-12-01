@@ -15,11 +15,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(
-  cors({
-    origin: "https://todo-assignment-frontend.vercel.app",
-  })
-);
+app.use(cors({ origin: "*", methods: "GET,HEAD,PUT,PATCH,POST,DELETE", preflightContinue: false, optionsSuccessStatus: 204 }));
 
 // Connect to DB
 connectToDb();
