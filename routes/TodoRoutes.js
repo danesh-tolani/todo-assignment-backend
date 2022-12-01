@@ -10,7 +10,7 @@ const editTodoController = require("../controllers/editTodoController");
 const searchTodosController = require("../controllers/searchTodosController");
 
 router.post("/createTodo", createTodoController);
-router.get("/getTodos", getTodosController);
+router.get("/", getTodosController);
 router.get("/getTodos/:id", getTodoController);
 router.delete("/deleteTodo/:id", deleteTodoController);
 router.post("/addTask/:id", createTaskController);
